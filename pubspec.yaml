@@ -1,0 +1,39 @@
+name: closet_ai
+version: 1.0.0+1
+publish_to: none
+description: A new Flutter project.
+environment: 
+  sdk: '>=3.5.0-82.0.dev <4.0.0'
+
+dependencies: 
+  cupertino_icons: ^1.0.6
+  get: 4.6.6
+  flutter: 
+    sdk: flutter
+  flutter_svg: ^2.0.10+1
+  flutter_screenutil: ^5.9.0
+  flutter_animate: ^4.5.0
+  google_fonts: ^6.2.1
+  lucide_icons: ^0.257.0
+  icons_plus: ^5.0.0
+  supabase_flutter: ^2.5.1
+  google_sign_in: ^6.2.1
+  shared_preferences: ^2.2.3
+  animations: ^2.0.11
+
+
+dev_dependencies: 
+  flutter_lints: 3.0.2
+  package_rename: ^1.5.3
+  flutter_test: 
+    sdk: flutter
+
+flutter: 
+  uses-material-design: true
+
+
+
+# assets folder
+  assets:
+    - assets/images/
+    - assets/icons/
