@@ -1,5 +1,5 @@
+import 'package:closet_ai/main.dart';
 import 'package:get/get.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 class SplashController extends GetxController {
   @override
@@ -12,9 +12,8 @@ class SplashController extends GetxController {
 
   // function to return the 'token' from the shared preferences to navigate to the home page or login page
   Future<void> checkLogin() async {
-    final prefs = await SharedPreferences.getInstance();
-    final token = prefs.getString('token');
-    if (token != null) {
+    final session = supabase.auth.currentSession;
+    if (session != null) {
       Get.offNamed('/layout');
     } else {
       Get.offNamed('/auth');

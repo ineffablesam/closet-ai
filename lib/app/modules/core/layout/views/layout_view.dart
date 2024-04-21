@@ -2,8 +2,10 @@ import 'dart:ui';
 
 import 'package:animations/animations.dart';
 import 'package:closet_ai/app/modules/core/layout/controllers/layout_controller.dart';
+import 'package:closet_ai/app/modules/generator/views/generator_view.dart';
 import 'package:closet_ai/app/modules/home/views/home_view.dart';
 import 'package:closet_ai/app/modules/profile/views/profile_view.dart';
+import 'package:dismissible_page/dismissible_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -49,8 +51,10 @@ class LayoutView extends GetView<LayoutController> {
               ),
               child: IconButton(
                 onPressed: () {
-                  // Get.toNamed('/add');
-                  debugPrint('Add button pressed');
+                  context.pushTransparentRoute(
+                    GeneratorView(),
+                  );
+                  HapticFeedback.selectionClick();
                 },
                 icon: const Icon(
                   Icons.add,
