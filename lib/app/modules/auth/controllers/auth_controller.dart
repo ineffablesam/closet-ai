@@ -16,7 +16,7 @@ class AuthController extends GetxController {
   }
 
   void _setupAuthListener() {
-    supabase.auth.onAuthStateChange.listen((data) {
+    supabase.auth.onAuthStateChange.listen((data) async {
       final event = data.event;
       if (event == AuthChangeEvent.signedIn) {
         print('User signed in: ${data.session?.user?.email}');
@@ -26,10 +26,6 @@ class AuthController extends GetxController {
     });
   }
 
-  // function to signout
-  // Future<void> signOut() async {
-  //   await supabase.auth.signOut();
-  // }
   Future<AuthResponse> googleSignIn() async {
     isLoading.value = true;
     const webClientId =
@@ -55,6 +51,7 @@ class AuthController extends GetxController {
       final googleAuth = await googleUser.authentication;
       final accessToken = googleAuth.accessToken;
       final idToken = googleAuth.idToken;
+      final email = googleUser.email;
 
       if (accessToken == null) {
         throw 'No Access Token found.';
@@ -63,7 +60,7 @@ class AuthController extends GetxController {
         throw 'No ID Token found.';
       }
 
-      saveUserToken(idToken);
+      saveUserToken(idToken, email);
 
       return supabase.auth.signInWithIdToken(
         provider: OAuthProvider.google,
@@ -80,10 +77,11 @@ class AuthController extends GetxController {
   }
 
   // function to saved the user data using shared preferences and push to /home
-  void saveUserToken(String token) async {
+  void saveUserToken(String token, email) async {
     final prefs = await SharedPreferences.getInstance();
     await prefs.setString('token', token);
+
     debugPrint('Token saved: $token');
-    Get.offNamed('/home');
+    Get.offNamed('/layout');
   }
 }

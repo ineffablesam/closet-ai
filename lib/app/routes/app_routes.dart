@@ -6,11 +6,13 @@ abstract class Routes {
   static const HOME = _Paths.HOME;
   static const SPLASH = _Paths.SPLASH;
   static const AUTH = _Paths.AUTH;
+  static const LAYOUT = _Paths.LAYOUT;
 }
 
 abstract class _Paths {
   _Paths._();
   static const HOME = '/home';
   static const SPLASH = '/splash';
+  static const LAYOUT = '/layout';
   static const AUTH = '/auth';
 }

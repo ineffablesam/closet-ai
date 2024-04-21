@@ -1,26 +1,29 @@
+import 'dart:ui';
+
+import 'package:animations/animations.dart';
 import 'package:closet_ai/app/modules/core/layout/controllers/layout_controller.dart';
 import 'package:closet_ai/app/modules/home/views/home_view.dart';
 import 'package:closet_ai/app/modules/profile/views/profile_view.dart';
-import 'package:closet_ai/app/utils/colors.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
-
-import '../../../../data/assets.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:icons_plus/icons_plus.dart';
 
 class LayoutView extends GetView<LayoutController> {
   const LayoutView({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     // final activeColor = AppColors.primary;
-    final activeColor = Color(0xffdbc5fd);
+    final activeColor = Color(0xffCE62AE);
     final inactiveColor = Color(0x80ffffff);
     List<Widget> pages = [
       HomeView(),
       const ProfileView(),
     ];
     final bottomNavBarController = Get.put(LayoutController());
+    final double bottomNavBarHeight = 60.h;
     return Obx(() => GestureDetector(
           onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
           child: Scaffold(
@@ -39,7 +42,7 @@ class LayoutView extends GetView<LayoutController> {
                   end: Alignment.topLeft,
                   colors: [
                     Color(0xff4900A6),
-                    Color(0xffA61DBD).withOpacity(0.5),
+                    Color(0xffA61DBD),
                     Color(0xffFFB89A),
                   ],
                 ),
@@ -77,13 +80,13 @@ class LayoutView extends GetView<LayoutController> {
                       filter: ImageFilter.blur(sigmaX: 35, sigmaY: 35),
                       child: SizedBox(
                         width: double.infinity,
-                        height: 69.h,
+                        height: bottomNavBarHeight,
                       ),
                     ),
                   ),
                 ),
                 SizedBox(
-                  height: 69.h,
+                  height: bottomNavBarHeight,
                   child: MediaQuery.removePadding(
                     context: context,
                     removeTop: true,
@@ -92,6 +95,7 @@ class LayoutView extends GetView<LayoutController> {
                       shape: const CircularNotchedRectangle(),
                       notchMargin: 8,
                       elevation: 0,
+                      height: bottomNavBarHeight,
                       color: Colors.transparent,
                       surfaceTintColor: Colors.transparent,
                       padding: EdgeInsets.zero,
@@ -102,13 +106,13 @@ class LayoutView extends GetView<LayoutController> {
                             const Color(0xB3000000).withOpacity(0.5),
                         showSelectedLabels: true,
                         showUnselectedLabels: true,
-                        selectedLabelStyle: GoogleFonts.poppins(
+                        selectedLabelStyle: GoogleFonts.outfit(
                           fontSize: 9.sp,
                           fontWeight: FontWeight.w400,
                           color: activeColor,
                           height: 1.5.h,
                         ),
-                        unselectedLabelStyle: GoogleFonts.poppins(
+                        unselectedLabelStyle: GoogleFonts.outfit(
                           fontSize: 9.sp,
                           fontWeight: FontWeight.w400,
                           color: Colors.grey,
@@ -120,48 +124,24 @@ class LayoutView extends GetView<LayoutController> {
                         enableFeedback: true,
                         items: [
                           BottomNavigationBarItem(
-                            icon: SvgPicture.asset(
-                              AppAssets.homeInactiveSvg,
+                            icon: Icon(
+                              Iconsax.home_outline,
                               color: inactiveColor,
                             ),
-                            activeIcon: SvgPicture.asset(
-                              AppAssets.homeSvg,
+                            activeIcon: Icon(
+                              Iconsax.home_1_bold,
                               color: activeColor,
                             ),
                             label: 'Home',
                             tooltip: '',
                           ),
                           BottomNavigationBarItem(
-                            icon: SvgPicture.asset(
-                              AppAssets.eventInactiveSvg,
+                            icon: Icon(
+                              Iconsax.user_outline,
                               color: inactiveColor,
                             ),
-                            activeIcon: SvgPicture.asset(
-                              AppAssets.eventSvg,
-                              color: activeColor,
-                            ),
-                            label: 'Events',
-                            tooltip: '',
-                          ),
-                          BottomNavigationBarItem(
-                            icon: SvgPicture.asset(
-                              AppAssets.mentionInactiveSvg,
-                              color: inactiveColor,
-                            ),
-                            activeIcon: SvgPicture.asset(
-                              AppAssets.mentionSvg,
-                              color: activeColor,
-                            ),
-                            label: 'Mentions',
-                            tooltip: '',
-                          ),
-                          BottomNavigationBarItem(
-                            icon: SvgPicture.asset(
-                              AppAssets.profileInactiveSvg,
-                              color: inactiveColor,
-                            ),
-                            activeIcon: SvgPicture.asset(
-                              AppAssets.profileSvg,
+                            activeIcon: Icon(
+                              Iconsax.user_bold,
                               color: activeColor,
                             ),
                             label: 'Account',
