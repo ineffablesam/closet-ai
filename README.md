@@ -32,6 +32,9 @@ Introducing Closet AI: the ultimate style companion 🌟. Upload images, choose 
 ## 💚 Usage of Supabase
 In our app, Supabase serves as the backbone for secure user authentication, efficient image storage, and enables dynamic edge functions, ensuring seamless and reliable functionality for our users' virtual wardrobe transformations.
 
+<a href="https://youtu.be/pJiE1EnM6w8" rel="some text">![Watch Demo](https://i.postimg.cc/wMRPb8M2/thumbnail.png)</a>
+
+
 ## How to setup **ClosetAi** ?
 
 1. Install [Flutter](https://flutter.dev/docs/get-started/install) for your platform.
