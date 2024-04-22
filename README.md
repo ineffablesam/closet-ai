@@ -32,6 +32,10 @@ Introducing Closet AI: the ultimate style companion 🌟. Upload images, choose 
 ## 💚 Usage of Supabase
 In our app, Supabase serves as the backbone for secure user authentication, efficient image storage, and enables dynamic edge functions, ensuring seamless and reliable functionality for our users' virtual wardrobe transformations.
 
+## 🚀 Examples
+
+<img src='https://i.postimg.cc/BvgBshR0/example-1.png' width="600" border='0' alt='thumbnail'/><br/>
+<img src='https://i.postimg.cc/63pLQrNG/example-2.png' width="600" border='0' alt='thumbnail'/><br/>
 
 ## 📺 Watch Demo
 
@@ -41,37 +45,12 @@ In our app, Supabase serves as the backbone for secure user authentication, effi
 
 ## Quick Look 👀
 
-<table>
-    <tbody>
-        <tr>
-            <td>
-              <img width="1604" alt="screen shot 2017-08-07 at 12 18 15 pm" src="https://i.postimg.cc/d1P4tkV2/IMG-7387.png">
-            </td>
-            <td>
-             <img width="1604" alt="screen shot 2017-08-07 at 12 18 15 pm" src="https://i.postimg.cc/6qBcnkRT/IMG-7397.png"> 
-            </td>
-            <td>
-              <img width="1604" alt="screen shot 2017-08-07 at 12 18 15 pm" src="https://i.postimg.cc/hG72Bbc4/Screenshot-2024-04-22-at-10-48-08-PM.jpg">
-            </td>
-        </tr>
-        <tr>
-            <td>
-               <img width="1604" alt="screen shot 2017-08-07 at 12 18 15 pm" src="https://i.postimg.cc/qRsQtJN9/IMG-7392.png">
-            </td>
-            <td>
-                <img width="1604" alt="screen shot 2017-08-07 at 12 18 15 pm" src="https://i.postimg.cc/m22VDGB5/IMG-7389.png"> 
-            </td>
-            <td>
-               <img width="1604" alt="screen shot 2017-08-07 at 12 18 15 pm" src="https://i.postimg.cc/QCSbbfkm/IMG-7391.png">
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <img width="1604" alt="screen shot 2017-08-07 at 12 18 15 pm" src="https://i.postimg.cc/8kbtNCQv/IMG-7395.png">
-            </td>
-        </tr>
-    </tbody>
-</table>
+|                                                                                                                                                                         |                                                                                                                                                                         |                                                                                                                                                                         |
+| :---------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
+| <img width="1604" alt="screen shot 2017-08-07 at 12 18 15 pm" src="https://i.postimg.cc/d1P4tkV2/IMG-7387.png"> | <img width="1604" alt="screen shot 2017-08-07 at 12 18 15 pm" src="https://i.postimg.cc/6qBcnkRT/IMG-7397.png"> | <img width="1604" alt="screen shot 2017-08-07 at 12 18 15 pm" src="https://i.postimg.cc/hG72Bbc4/Screenshot-2024-04-22-at-10-48-08-PM.jpg"> |
+| <img width="1604" alt="screen shot 2017-08-07 at 12 18 15 pm" src="https://i.postimg.cc/qRsQtJN9/IMG-7392.png"> | <img width="1604" alt="screen shot 2017-08-07 at 12 18 15 pm" src="https://i.postimg.cc/m22VDGB5/IMG-7389.png"> | <img width="1604" alt="screen shot 2017-08-07 at 12 18 15 pm" src="https://i.postimg.cc/QCSbbfkm/IMG-7391.png"> |
+| <img width="1604" alt="screen shot 2017-08-07 at 12 18 15 pm" src="https://i.postimg.cc/8kbtNCQv/IMG-7395.png"> 
+
 
 
 ## How to setup **ClosetAi** ?
