@@ -1,13 +1,15 @@
-<p align="center">
-  <img src="https://i.postimg.cc/Bngk2Dd8/promo-full.jpg" height="290"/>
-  
-</p>
-
 <h1 align="center"><strong>Closet Ai | Revamp your style effortlessly</strong></h1>
 <div align="center">
   <img src="https://i.ibb.co/QrHCr6T/supabase.png" alt="Syno Logo" width="200"/>
   <img src="https://i.ibb.co/Y01y0fc/flutter-logo.png" alt="Flutter Logo" width="200"/>
 </div>
+
+<p align="center">
+  <img src="https://i.postimg.cc/Bngk2Dd8/promo-full.jpg" height="290"/>
+  
+</p>
+
+
 
 <br/>
 <p align="center">
