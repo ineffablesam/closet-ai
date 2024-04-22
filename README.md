@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://i.postimg.cc/7YtQLm4L/promo-full.jpg" height="290"/></p>
+  <img src="https://i.postimg.cc/SNcwNHdf/promo.png" height="290"/></p>
   <h1 align="center"><strong>Closet Ai | Revamp your style effortlessly</strong></h1>
   <div align="center">
     <img src="https://i.ibb.co/QrHCr6T/supabase.png" alt="Syno Logo" width="200"  />
