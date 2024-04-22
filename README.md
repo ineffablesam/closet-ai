@@ -65,8 +65,9 @@ In our app, Supabase serves as the backbone for secure user authentication, effi
 ## Roadmap
 
 - Refactor the whole Codebase 😅
-
+- Add Webhooks for triggering Emails when Generations are completed
 - Add Supabase magic login
+- Implement Local Image saving
 
 
 ## 🧑🏻‍💻 Team
