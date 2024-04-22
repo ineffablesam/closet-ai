@@ -1,3 +1,5 @@
+import 'package:cached_network_image/cached_network_image.dart';
+import 'package:closet_ai/app/modules/closet/views/closet_view.dart';
 import 'package:closet_ai/app/utils/colors.dart';
 import 'package:closet_ai/app/widgets/developer_widget.dart';
 import 'package:dismissible_page/dismissible_page.dart';
@@ -9,9 +11,9 @@ import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:icons_plus/icons_plus.dart';
+import 'package:shimmer_animation/shimmer_animation.dart';
 import 'package:smooth_corner/smooth_corner.dart';
 
-import '../../../../main.dart';
 import '../../../data/assets.dart';
 import '../../../utils/custom_tap.dart';
 import '../controllers/home_controller.dart';
@@ -23,8 +25,7 @@ class HomeView extends GetView<HomeController> {
     final controller = Get.put(HomeController());
     return RefreshIndicator(
       onRefresh: () async {
-        // after 2 seconds, the refresh indicator will be dismissed
-        await Future.delayed(const Duration(seconds: 2));
+        await controller.fetchCloset();
       },
       child: AnimationLimiter(
         child: Scaffold(
@@ -73,20 +74,24 @@ class HomeView extends GetView<HomeController> {
                           Icon(
                             MingCute.dress_fill,
                             color: Colors.white,
+                            size: 14.sp,
                           ),
                           5.horizontalSpace,
                           Text(
                             "Your Closet",
                             style: GoogleFonts.outfit(
-                              color: Colors.white,
-                              fontSize: 20.sp,
-                              fontWeight: FontWeight.w700,
+                              color: Colors.grey.shade300,
+                              fontSize: 18.sp,
+                              fontWeight: FontWeight.w300,
                             ),
                           ),
                         ],
                       ),
                     ),
-                    YourClosetWidget(),
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: YourClosetWidget(),
+                    ),
                     // const UploadWidget(),
                     // const ForYouCard(),
                     200.verticalSpace,
@@ -109,53 +114,252 @@ class YourClosetWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    int columnCount = 2;
+    final controller = Get.put(HomeController());
 
     return Column(
       children: [
-        CustomTap(
-          onTap: () async {
-            final userId = supabase.auth.currentUser!.id;
-            final data =
-                await supabase.from('generations').select().eq('id', userId);
-            debugPrint('/////DATA: $data');
-          },
-          child: Text(
-            "Fetch Data",
-            style: GoogleFonts.ibmPlexSans(
-              color: Colors.white,
-              fontWeight: FontWeight.w700,
-            ),
-          ),
-        ),
         Container(
-          height: 0.6.sh,
-          child: GridView.count(
-            crossAxisCount: columnCount,
-            children: List.generate(
-              10,
-              (int index) {
-                return AnimationConfiguration.staggeredGrid(
-                  position: index,
-                  duration: const Duration(milliseconds: 375),
-                  columnCount: columnCount,
-                  child: ScaleAnimation(
-                    child: FadeInAnimation(
-                      child: Container(
-                        margin: EdgeInsets.all(10.h),
-                        decoration: BoxDecoration(
-                          color: Colors.grey.shade900,
-                          borderRadius: BorderRadius.circular(10.r),
-                        ),
+          // height: 0.6.sh,
+          // controller.gen to generate the list of items
+          child: Obx(() => controller.isFetchingCloset.value
+              ? _buildClosetLoading()
+              : (controller.gen.value.isEmpty)
+                  ? Text("No Generations Found for you")
+                  : GridView.builder(
+                      shrinkWrap: true,
+                      physics: const NeverScrollableScrollPhysics(),
+                      gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
+                        maxCrossAxisExtent: 0.5.sw,
+                        mainAxisSpacing: 0,
+                        childAspectRatio: 1,
+                        mainAxisExtent: 275.h,
                       ),
-                    ),
-                  ),
-                );
-              },
-            ),
-          ),
+                      itemCount: controller.gen.value.length,
+                      itemBuilder: (context, index) {
+                        return AnimationConfiguration.staggeredGrid(
+                          position: index,
+                          columnCount: controller.gen.value.length,
+                          child: ScaleAnimation(
+                            child: FadeInAnimation(
+                              child: Padding(
+                                padding: EdgeInsets.symmetric(
+                                  horizontal: 5.w,
+                                  vertical: 5.h,
+                                ),
+                                child: CustomTap(
+                                  onTap: () {
+                                    Get.to(
+                                      () => ClosetView(
+                                        gen: controller.gen.value[index],
+                                      ),
+                                      transition: Transition.cupertino,
+                                    );
+                                  },
+                                  child: Container(
+                                    decoration: BoxDecoration(
+                                      color: Colors.grey.shade900.withOpacity(
+                                        0.4,
+                                      ),
+                                      borderRadius: BorderRadius.circular(14.r),
+                                    ),
+                                    child: Padding(
+                                      padding: EdgeInsets.symmetric(
+                                        vertical: 5.h,
+                                        horizontal: 7.w,
+                                      ),
+                                      child: Column(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.start,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          ClipRRect(
+                                            borderRadius:
+                                                BorderRadius.circular(14.r),
+                                            child: CachedNetworkImage(
+                                              imageUrl: controller
+                                                  .gen
+                                                  .value[index]
+                                                  .uploadedImage as String,
+                                              height: 160.h,
+                                              width: double.infinity,
+                                              fit: BoxFit.cover,
+                                            ),
+                                          ),
+                                          10.verticalSpace,
+                                          Padding(
+                                            padding: EdgeInsets.symmetric(
+                                              horizontal: 5.w,
+                                            ),
+                                            child: Column(
+                                              children: [
+                                                SizedBox(
+                                                  width: 140.w,
+                                                  child: Text(
+                                                    controller.gen.value[index]
+                                                        .prompt as String,
+                                                    maxLines: 3,
+                                                    overflow:
+                                                        TextOverflow.ellipsis,
+                                                    style: GoogleFonts.outfit(
+                                                      color: Colors.white,
+                                                      fontWeight:
+                                                          FontWeight.w700,
+                                                    ),
+                                                  ),
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                          5.verticalSpace,
+                                        ],
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                        );
+                      },
+                    )),
         ),
       ],
+    );
+  }
+}
+
+class _buildClosetLoading extends StatelessWidget {
+  const _buildClosetLoading({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return GridView.builder(
+      shrinkWrap: true,
+      physics: const NeverScrollableScrollPhysics(),
+      gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
+        // crossAxisCount: 2,
+        maxCrossAxisExtent: 0.5.sw,
+        mainAxisSpacing: 0,
+        childAspectRatio: 1,
+        mainAxisExtent: 275.h,
+      ),
+      itemCount: 7,
+      itemBuilder: (context, index) {
+        return AnimationConfiguration.staggeredGrid(
+          position: index,
+          duration: const Duration(milliseconds: 375),
+          columnCount: 7,
+          child: ScaleAnimation(
+            child: FadeInAnimation(
+              child: Padding(
+                padding: EdgeInsets.symmetric(
+                  horizontal: 5.w,
+                  vertical: 5.h,
+                ),
+                child: Container(
+                  decoration: BoxDecoration(
+                    color: Colors.grey.shade900.withOpacity(
+                      0.2,
+                    ),
+                    borderRadius: BorderRadius.circular(14.r),
+                  ),
+                  child: Padding(
+                    padding: EdgeInsets.symmetric(
+                      vertical: 5.h,
+                      horizontal: 7.w,
+                    ),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        ClipRRect(
+                          borderRadius: BorderRadius.circular(14.r),
+                          child: Shimmer(
+                            child: SizedBox(
+                              height: 160.h,
+                              width: double.infinity,
+                            ),
+                          ),
+                        ),
+                        10.verticalSpace,
+                        Row(
+                          children: [
+                            ClipRRect(
+                              borderRadius: BorderRadius.circular(7.r),
+                              child: Shimmer(
+                                child: SizedBox(
+                                  height: 10.h,
+                                  width: 60.w,
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                        5.verticalSpace,
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            Row(
+                              children: [
+                                ClipRRect(
+                                  borderRadius: BorderRadius.circular(7.r),
+                                  child: Shimmer(
+                                    child: SizedBox(
+                                      height: 15.h,
+                                      width: 120.w,
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
+                        5.verticalSpace,
+                        Column(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Row(
+                              children: [
+                                ClipRRect(
+                                  borderRadius: BorderRadius.circular(7.r),
+                                  child: Shimmer(
+                                    child: SizedBox(
+                                      height: 15.h,
+                                      width: 90.w,
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                            5.verticalSpace,
+                            Row(
+                              children: [
+                                ClipRRect(
+                                  borderRadius: BorderRadius.circular(7.r),
+                                  child: Shimmer(
+                                    child: SizedBox(
+                                      height: 15.h,
+                                      width: 70.w,
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          ),
+        );
+      },
     );
   }
 }

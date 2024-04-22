@@ -7,6 +7,8 @@ import 'package:http/http.dart' as http;
 import 'package:image_picker/image_picker.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
+import '../../../models/init_gen_model.dart';
+
 class GeneratorController extends GetxController {
   final promptController = TextEditingController();
   RxBool isImageUploading = false.obs;
@@ -102,9 +104,23 @@ class GeneratorController extends GetxController {
         }),
       );
 
-      if (response.statusCode == 200) {
-        // Handle successful response here
-        print('Success: ${response.body}');
+      if (response.statusCode == 201) {
+        // parse the response to model InitGen
+        final responseJson = jsonDecode(response.body);
+        InitGen initGen = InitGen.fromJson(responseJson);
+        debugPrint('Prompt from server: ${initGen.input?.prompt}');
+        await supabase.from('generations').insert({
+          'prompt': initGen.input?.prompt,
+          'uploaded_image': imageUrl,
+          'clothing_type': clothingType,
+          'output': responseJson,
+          'self_id': initGen.id,
+          'get_url': initGen.urls?.get,
+          'cancel_url': initGen.urls?.cancel,
+          'status': initGen.status,
+          'logs': initGen.logs,
+          'user_id': supabase.auth.currentUser!.id,
+        });
       } else {
         // Handle error response here
         print('Error: ${response.statusCode}');

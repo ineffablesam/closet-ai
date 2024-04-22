@@ -1,5 +1,7 @@
 import 'package:closet_ai/app/modules/auth/bindings/auth_binding.dart';
 import 'package:closet_ai/app/modules/auth/views/auth_view.dart';
+import 'package:closet_ai/app/modules/closet/bindings/closet_binding.dart';
+import 'package:closet_ai/app/modules/closet/views/closet_view.dart';
 import 'package:closet_ai/app/modules/core/layout/bindings/layout_binding.dart';
 import 'package:closet_ai/app/modules/core/layout/views/layout_view.dart';
 import 'package:closet_ai/app/modules/splash/bindings/splash_binding.dart';
@@ -36,6 +38,11 @@ class AppPages {
       name: _Paths.LAYOUT,
       page: () => const LayoutView(),
       binding: LayoutBinding(),
+    ),
+    GetPage(
+      name: _Paths.CLOSET,
+      page: () => const ClosetView(),
+      binding: ClosetBinding(),
     ),
   ];
 }
