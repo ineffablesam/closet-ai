@@ -141,12 +141,40 @@ class ClosetView extends GetView<ClosetController> {
                                 ),
                                 child: ClipRRect(
                                   borderRadius: BorderRadius.circular(10.r),
-                                  child: CachedNetworkImage(
-                                    imageUrl:
-                                        controller.finalGen.value.output!.last,
-                                    height: 290.h,
-                                    width: 0.9.sw,
-                                    fit: BoxFit.cover,
+                                  child: Stack(
+                                    alignment: Alignment.bottomRight,
+                                    children: [
+                                      CachedNetworkImage(
+                                        imageUrl: controller
+                                            .finalGen.value.output!.last,
+                                        height: 290.h,
+                                        width: 0.9.sw,
+                                        fit: BoxFit.cover,
+                                      ),
+                                      Container(
+                                        height: 290.h,
+                                        width: 0.9.sw,
+                                        decoration: BoxDecoration(
+                                          gradient: LinearGradient(
+                                            begin: Alignment.topCenter,
+                                            end: Alignment.bottomCenter,
+                                            colors: [
+                                              Colors.transparent,
+                                              Colors.black.withOpacity(0.5),
+                                            ],
+                                          ),
+                                        ),
+                                      ),
+                                      Padding(
+                                        padding: EdgeInsets.all(5.h),
+                                        child: Image.asset(
+                                          'assets/icons/watermark.png',
+                                          width: 0.26.sw,
+                                          fit: BoxFit.cover,
+                                        ),
+                                      ),
+                                      // black gradient
+                                    ],
                                   ),
                                 ),
                               ),

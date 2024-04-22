@@ -29,6 +29,7 @@ dependencies:
   flutter_staggered_animations: ^1.1.1
   cached_network_image: ^3.3.1
   http: ^1.2.1
+  flutter_dotenv: ^5.1.0
 
 
 dev_dependencies: 
@@ -47,3 +48,4 @@ flutter:
     - assets/images/
     - assets/lottie/
     - assets/icons/
+    - lib/.env

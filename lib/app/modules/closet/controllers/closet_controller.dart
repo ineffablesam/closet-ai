@@ -6,6 +6,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
 
+import '../../../data/consts.dart';
+
 class ClosetController extends GetxController {
   RxBool isLoading = false.obs;
   RxBool isGenerated = false.obs;
@@ -19,22 +21,31 @@ class ClosetController extends GetxController {
         Uri.parse(get),
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': 'Bearer r8_HlIvcUm2WT7tZ8u7OuJUxr8vlkXcpnt07sDFx',
+          'Authorization': 'Bearer $REPLICATE_KEY',
         },
       );
+      debugPrint('Response Status Code: ${response.statusCode}');
+      debugPrint('Response Body: ${jsonDecode(response.body)}');
       if (response.statusCode == 200) {
         // pass to FinalGen
         final data = FinalGen.fromJson(jsonDecode(response.body));
         finalGen.value = data;
-        debugPrint(finalGen.value!.status);
-        if (finalGen.value!.status == 'succeeded') {
-          isGenerated.value = true;
-          debugPrint('Generated So no need to refresh');
+
+        if (data != null) {
+          // set only the data.logs to finalGen.value.logs
+          finalGen.value!.logs = data.logs;
+          debugPrint('Logs Loaded ${data.logs}');
+          if (finalGen.value!.status == 'succeeded') {
+            isGenerated.value = true;
+            debugPrint('Generated So no need to refresh');
+          } else {
+            debugPrint('Not Generated, So Refreshing in 4 seconds');
+            Timer(Duration(seconds: 4), () {
+              fetchCloset(get);
+            });
+          }
         } else {
-          debugPrint('Not Generated, So Refreshing in 4 seconds');
-          Timer(Duration(seconds: 4), () {
-            fetchCloset(get);
-          });
+          isGenerated.value = false;
         }
       } else {
         debugPrint('Failed to load data');

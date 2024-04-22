@@ -7,6 +7,7 @@ import 'package:http/http.dart' as http;
 import 'package:image_picker/image_picker.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
+import '../../../data/consts.dart';
 import '../../../models/init_gen_model.dart';
 import '../../home/controllers/home_controller.dart';
 
@@ -86,11 +87,10 @@ class GeneratorController extends GetxController {
   Future<void> generateClothing(
       String imageUrl, String prompt, String clothingType) async {
     try {
-      const REPLICATE_API_TOKEN = 'r8_HlIvcUm2WT7tZ8u7OuJUxr8vlkXcpnt07sDFx';
       final response = await http.post(
         Uri.parse('https://api.replicate.com/v1/predictions'),
         headers: {
-          'Authorization': 'Bearer $REPLICATE_API_TOKEN',
+          'Authorization': 'Bearer $REPLICATE_KEY',
           'Content-Type': 'application/json',
         },
         body: jsonEncode({

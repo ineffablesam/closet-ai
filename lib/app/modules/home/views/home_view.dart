@@ -40,20 +40,6 @@ class HomeView extends GetView<HomeController> {
                   height: 26.h,
                 ),
                 backgroundColor: AppColors.scaffoldBg,
-                actions: [
-                  Obx(
-                    () => controller.isLoading.value
-                        ? const Center(
-                            child: CircularProgressIndicator(),
-                          )
-                        : IconButton(
-                            onPressed: () async {
-                              await controller.signOut();
-                            },
-                            icon: const Icon(Icons.logout),
-                          ),
-                  ),
-                ],
                 expandedHeight: 70.h,
                 collapsedHeight: 70.h,
                 floating: false,
