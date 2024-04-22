@@ -22,7 +22,7 @@
 
 Introducing Closet AI: the ultimate style companion 🌟. Upload images, choose your desired topwear or bottomwear, then watch as our cutting-edge AI replaces your outfit in an instant! 🔥 Seamlessly integrated with Supabase for secure authentication, lightning-fast image storage, and dynamic edge functions, our project is a game-changer for the Supabase Hackathon. Join us and revolutionize your wardrobe with the power of AI and Supabase!
 
-**Built for Supabase's Flutter Hackathon 2024**
+**Designed with ❤️ for Supabase Open Source Hackathon 2024**
 
 ## 🔥 Supercharged with
 
