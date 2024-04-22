@@ -32,7 +32,46 @@ Introducing Closet AI: the ultimate style companion 🌟. Upload images, choose 
 ## 💚 Usage of Supabase
 In our app, Supabase serves as the backbone for secure user authentication, efficient image storage, and enables dynamic edge functions, ensuring seamless and reliable functionality for our users' virtual wardrobe transformations.
 
-<a href="https://youtu.be/pJiE1EnM6w8" rel="some text">![Watch Demo](https://i.postimg.cc/wMRPb8M2/thumbnail.png)</a>
+
+## 📺 Watch Demo
+
+[Youtube Link](https://youtu.be/pJiE1EnM6w8)<br/><br/>
+<a href='https://youtu.be/pJiE1EnM6w8' target='_blank'><img src='https://i.postimg.cc/wMRPb8M2/thumbnail.png' width="600" border='0' alt='thumbnail'/></a>
+
+
+## Quick Look 👀
+
+<table>
+    <tbody>
+        <tr>
+            <td>
+              <img width="1604" alt="screen shot 2017-08-07 at 12 18 15 pm" src="https://i.postimg.cc/p9CDsd8r/IMG-7387.png">
+            </td>
+            <td>
+             <img width="1604" alt="screen shot 2017-08-07 at 12 18 15 pm" src="https://i.postimg.cc/w3ZDfZtX/IMG-7389.png"> 
+            </td>
+            <td>
+              <img width="1604" alt="screen shot 2017-08-07 at 12 18 15 pm" src="https://i.postimg.cc/ZvBpYFQv/IMG-7391.png">
+            </td>
+        </tr>
+        <tr>
+            <td>
+               <img width="1604" alt="screen shot 2017-08-07 at 12 18 15 pm" src="https://i.postimg.cc/G8pvV1JQ/IMG-7392.png">
+            </td>
+            <td>
+                <img width="1604" alt="screen shot 2017-08-07 at 12 18 15 pm" src="https://i.postimg.cc/z3Vnk8fD/IMG-7395.png"> 
+            </td>
+            <td>
+               <img width="1604" alt="screen shot 2017-08-07 at 12 18 15 pm" src="https://i.postimg.cc/njwqtw3t/IMG-7397.png">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <img width="1604" alt="screen shot 2017-08-07 at 12 18 15 pm" src="https://i.postimg.cc/4Ks6vcYj/Screenshot-2024-04-22-at-10-48-08-PM.jpg">
+            </td>
+        </tr>
+    </tbody>
+</table>
 
 
 ## How to setup **ClosetAi** ?
