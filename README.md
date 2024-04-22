@@ -1,26 +1,28 @@
 <p align="center">
-  <img src="https://i.ibb.co/XzycYZd/promo.png" alt="Banner-closet-ai"  height="290"/></p>
-  <h1 align="center"><strong>ClosetAi: Your Virtual Wardrobe</strong></h1>
+  <img src="https://i.postimg.cc/7YtQLm4L/promo-full.jpg  height="290"/></p>
+  <h1 align="center"><strong>Closet Ai | Revamp your style effortlessly</strong></h1>
   <div align="center">
     <img src="https://i.ibb.co/QrHCr6T/supabase.png" alt="Syno Logo" width="200"  />
     <img src="https://i.ibb.co/Y01y0fc/flutter-logo.png" alt="Flutter Logo" width="200"/>
-  
 </div>
 <br/>
 <p align="center">
-  <a href="">Demo APK Download Link</a>
+  <a href="https://drive.google.com/file/d/1VH6hNLjEf9rv1LEzmuWvthVoz3jKkaEz/view?usp=sharing">Demo APK Download Link</a>
 </p>
 
 <br/>
 <br/>
 
+<img width="120" alt="app-icon" src="https://i.postimg.cc/pTVS0TM0/logo.png">
+
+
 # 👾 ClosetAi - Your Virtual Wardrobe
 
-Introducing Closet AI: the ultimate style companion 🌟. Upload images, choose your topwear and bottomwear, then watch as our cutting-edge AI replaces your outfit in an instant! 🔥 Seamlessly integrated with Supabase for secure authentication, lightning-fast image storage, and dynamic edge functions, our project is a game-changer for the Supabase Hackathon. Join us and revolutionize your wardrobe with the power of AI and Supabase!
+Introducing Closet AI: the ultimate style companion 🌟. Upload images, choose your desired topwear or bottomwear, then watch as our cutting-edge AI replaces your outfit in an instant! 🔥 Seamlessly integrated with Supabase for secure authentication, lightning-fast image storage, and dynamic edge functions, our project is a game-changer for the Supabase Hackathon. Join us and revolutionize your wardrobe with the power of AI and Supabase!
 
 **Built for Supabase's Flutter Hackathon 2024**
 
-## 🛠️ Supercharged with
+## 🔥 Supercharged with
 
 - Supabase
 - Flutter
