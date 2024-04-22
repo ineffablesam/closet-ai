@@ -45,29 +45,29 @@ In our app, Supabase serves as the backbone for secure user authentication, effi
     <tbody>
         <tr>
             <td>
-              <img width="1604" alt="screen shot 2017-08-07 at 12 18 15 pm" src="https://i.postimg.cc/p9CDsd8r/IMG-7387.png">
+              <img width="1604" alt="screen shot 2017-08-07 at 12 18 15 pm" src="https://i.postimg.cc/d1P4tkV2/IMG-7387.png">
             </td>
             <td>
-             <img width="1604" alt="screen shot 2017-08-07 at 12 18 15 pm" src="https://i.postimg.cc/w3ZDfZtX/IMG-7389.png"> 
+             <img width="1604" alt="screen shot 2017-08-07 at 12 18 15 pm" src="https://i.postimg.cc/6qBcnkRT/IMG-7397.png"> 
             </td>
             <td>
-              <img width="1604" alt="screen shot 2017-08-07 at 12 18 15 pm" src="https://i.postimg.cc/ZvBpYFQv/IMG-7391.png">
-            </td>
-        </tr>
-        <tr>
-            <td>
-               <img width="1604" alt="screen shot 2017-08-07 at 12 18 15 pm" src="https://i.postimg.cc/G8pvV1JQ/IMG-7392.png">
-            </td>
-            <td>
-                <img width="1604" alt="screen shot 2017-08-07 at 12 18 15 pm" src="https://i.postimg.cc/z3Vnk8fD/IMG-7395.png"> 
-            </td>
-            <td>
-               <img width="1604" alt="screen shot 2017-08-07 at 12 18 15 pm" src="https://i.postimg.cc/njwqtw3t/IMG-7397.png">
+              <img width="1604" alt="screen shot 2017-08-07 at 12 18 15 pm" src="https://i.postimg.cc/hG72Bbc4/Screenshot-2024-04-22-at-10-48-08-PM.jpg">
             </td>
         </tr>
         <tr>
             <td>
-                <img width="1604" alt="screen shot 2017-08-07 at 12 18 15 pm" src="https://i.postimg.cc/4Ks6vcYj/Screenshot-2024-04-22-at-10-48-08-PM.jpg">
+               <img width="1604" alt="screen shot 2017-08-07 at 12 18 15 pm" src="https://i.postimg.cc/qRsQtJN9/IMG-7392.png">
+            </td>
+            <td>
+                <img width="1604" alt="screen shot 2017-08-07 at 12 18 15 pm" src="https://i.postimg.cc/m22VDGB5/IMG-7389.png"> 
+            </td>
+            <td>
+               <img width="1604" alt="screen shot 2017-08-07 at 12 18 15 pm" src="https://i.postimg.cc/QCSbbfkm/IMG-7391.png">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <img width="1604" alt="screen shot 2017-08-07 at 12 18 15 pm" src="https://i.postimg.cc/8kbtNCQv/IMG-7395.png">
             </td>
         </tr>
     </tbody>
