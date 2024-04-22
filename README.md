@@ -72,8 +72,11 @@ In our app, Supabase serves as the backbone for secure user authentication, effi
 ## 🧑🏻‍💻 Team
 
 - [Samuel Philip](https://github.com/ineffablesam)
+- [Anish](https://github.com/anishganapathi)
+- [Satyanand](https://github.com/SatyanandAtluri)
+- [Team Next](https://github.com/Team-NEXT-INDIA/VITOPIA)
 
-## 🔗 Social Links
+## 🔗 My Social Links
 
 - [Twitter](https://twitter.com/samuelP09301972)
 - [Instagram](https://www.instagram.com/ig_samuelsam/)
