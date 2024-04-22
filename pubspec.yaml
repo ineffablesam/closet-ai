@@ -43,7 +43,7 @@ flutter:
 
 
 
-# assets folder
+# assets folder 
   assets:
     - assets/images/
     - assets/lottie/
