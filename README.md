@@ -53,13 +53,57 @@ In our app, Supabase serves as the backbone for secure user authentication, effi
 
 
 
-## How to setup **ClosetAi** ?
+# How to setup **ClosetAi** ?
+
+## Setup Instructios: Supabase
+
+### 1. Create Profile table:
+
+```sql
+create table
+  profile (
+    id bigint primary key generated always as identity,
+    username text not null,
+    email text not null,
+    date_joined timestamp with time zone default current_timestamp
+  );
+```
+
+### 2. Create the storage bucket 'closet-generations'
+
+### 3. Add Bucket Policies:
+```sql
+-- Add policies for managing access to the storage bucket 'closet-generations'
+
+create policy "Generations images are publicly accessible." on storage.objects
+  for select using (bucket_id = 'closet-generations');
+
+create policy "Anyone can upload an generations." on storage.objects
+  for insert with check (bucket_id = 'closet-generations');
+
+create policy "Anyone can update their own generations." on storage.objects
+  for update using ((select auth.uid()) = owner) with check (bucket_id = 'closet-generations');
+```
+
+## Setup Instructios: Flutter 
+
+### 1. Copy Environment Variables:
+
+Copy the contents of `env.example` to a new file named `.env`.
+
+```plaintext
+REPLICATE_KEY=''
+SUPABASE_URL=''
+SUPABASE_ANON_KEY=''
+```
+Get the keys for REPLICATE_KEY, SUPABASE_URL, and SUPABASE_ANON_KEY from your Supabase project and Replicate dashboard
+Replace the placeholders in the .env file with the actual keys. Then Continue with below steps
 
 1. Install [Flutter](https://flutter.dev/docs/get-started/install) for your platform.
 2. Clone this repository or download the source code.
 3. Open a terminal window and navigate to the project directory.
 4. Run `flutter pub get` to install dependencies.
-5. Connect a device or emulator.
+5. Copy the Contents of .
 6. Run `flutter run` to start the app.
 
 ## Roadmap
