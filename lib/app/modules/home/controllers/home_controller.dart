@@ -38,7 +38,7 @@ class HomeController extends GetxController {
       debugPrint('Gen Length: ${gen.value.first.getUrl}');
     } catch (e) {
       isFetchingCloset.value = false;
-      Get.snackbar('Error', e.toString());
+      // Get.snackbar('Error', e.toString());
     } finally {
       isFetchingCloset.value = false;
     }

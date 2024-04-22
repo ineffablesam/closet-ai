@@ -124,7 +124,27 @@ class YourClosetWidget extends StatelessWidget {
           child: Obx(() => controller.isFetchingCloset.value
               ? _buildClosetLoading()
               : (controller.gen.value.isEmpty)
-                  ? Text("No Generations Found for you")
+                  ? Container(
+                      margin: EdgeInsets.symmetric(
+                        horizontal: 20.w,
+                        vertical: 10.h,
+                      ),
+                      height: 200.h,
+                      alignment: Alignment.center,
+                      decoration: BoxDecoration(
+                        color: Colors.grey.shade900.withOpacity(
+                          0.4,
+                        ),
+                        borderRadius: BorderRadius.circular(14.r),
+                      ),
+                      child: Text(
+                        "No Generations Found for you",
+                        style: GoogleFonts.outfit(
+                          color: Colors.white,
+                          fontWeight: FontWeight.w700,
+                        ),
+                      ),
+                    )
                   : GridView.builder(
                       shrinkWrap: true,
                       physics: const NeverScrollableScrollPhysics(),

@@ -6,6 +6,7 @@ import 'dart:ui';
 import 'package:animate_do/animate_do.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:closet_ai/app/data/assets.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -62,38 +63,44 @@ class GeneratorView extends GetView<GeneratorController> {
                 ),
               ),
               10.horizontalSpace,
-              Expanded(
-                child: CustomTap(
-                  onTap: () async {
-                    await controller.doMagic();
-                  },
-                  child: Container(
-                    height: 45.h,
-                    alignment: Alignment.center,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10.r),
-                      gradient: LinearGradient(
-                        stops: const [0.1, 0.3, 1],
-                        begin: Alignment.bottomRight,
-                        end: Alignment.topLeft,
-                        colors: [
-                          Color(0xff4900A6),
-                          Color(0xffA61DBD),
-                          Color(0xffFFB89A),
-                        ],
-                      ),
-                    ),
-                    child: Text(
-                      'Start Magic 🪄',
-                      style: GoogleFonts.outfit(
-                        fontSize: 13.sp,
-                        fontWeight: FontWeight.w500,
-                        color: Colors.white,
-                      ),
-                    ),
+              Obx(
+                () => Expanded(
+                  child: CustomTap(
+                    onTap: () async {
+                      await controller.doMagic();
+                    },
+                    child: Container(
+                        height: 45.h,
+                        alignment: Alignment.center,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10.r),
+                          gradient: LinearGradient(
+                            stops: const [0.1, 0.3, 1],
+                            begin: Alignment.bottomRight,
+                            end: Alignment.topLeft,
+                            colors: [
+                              Color(0xff4900A6),
+                              Color(0xffA61DBD),
+                              Color(0xffFFB89A),
+                            ],
+                          ),
+                        ),
+                        child: controller.isGenerating.value == true
+                            ? Center(
+                                child: CupertinoActivityIndicator(
+                                color: Colors.white,
+                              ))
+                            : Text(
+                                'Start Magic 🪄',
+                                style: GoogleFonts.outfit(
+                                  fontSize: 13.sp,
+                                  fontWeight: FontWeight.w500,
+                                  color: Colors.white,
+                                ),
+                              )),
                   ),
                 ),
-              ),
+              )
             ],
           ),
         ),

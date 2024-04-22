@@ -8,6 +8,7 @@ import 'package:image_picker/image_picker.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 import '../../../models/init_gen_model.dart';
+import '../../home/controllers/home_controller.dart';
 
 class GeneratorController extends GetxController {
   final promptController = TextEditingController();
@@ -96,10 +97,9 @@ class GeneratorController extends GetxController {
           "version":
               "4e7916cc6ca0fe2e0e414c32033a378ff5d8879f209b1df30e824d6779403826",
           "input": {
-            "image":
-                "https://replicate.delivery/pbxt/It7YNyAmywNkJXdMzXXsCuc7a6WLYl10nZJ4d2SiZ5NGdsE0/77816-2000x2667-mobile-hd-elon-musk-wallpaper-image.jpg",
-            "prompt": "a person wearing blue jeans",
-            "clothing": "bottomwear"
+            "image": imageUrl,
+            "prompt": prompt,
+            "clothing": clothingType,
           }
         }),
       );
@@ -121,6 +121,15 @@ class GeneratorController extends GetxController {
           'logs': initGen.logs,
           'user_id': supabase.auth.currentUser!.id,
         });
+        // go back to the previous screen
+        // reset the form fields
+        reset();
+        Get.back();
+        final homeController = Get.find<HomeController>();
+
+        // initialise the home controller to fetch the latest generations
+
+        homeController.fetchCloset();
       } else {
         // Handle error response here
         print('Error: ${response.statusCode}');
@@ -178,5 +187,6 @@ class GeneratorController extends GetxController {
     await Future.delayed(const Duration(seconds: 1));
     uploadedImageUrl.value = '';
     selectedClothingType.value = '';
+    promptController.clear();
   }
 }
