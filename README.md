@@ -1,6 +1,8 @@
 <p align="center">
   <img src="https://i.postimg.cc/Bngk2Dd8/promo-full.jpg" height="290"/>
+  
 </p>
+
 <h1 align="center"><strong>Closet Ai | Revamp your style effortlessly</strong></h1>
 <div align="center">
   <img src="https://i.ibb.co/QrHCr6T/supabase.png" alt="Syno Logo" width="200"/>
@@ -14,7 +16,6 @@
 
 <br/>
 <br/>
-
 <img width="120" alt="app-icon" src="https://i.postimg.cc/pTVS0TM0/logo.png">
 
 
@@ -44,6 +45,7 @@ In our app, Supabase serves as the backbone for secure user authentication, effi
 
 
 ## Quick Look 👀
+![Promo 2 Image](https://i.postimg.cc/T3YTP14W/promo-2.png)
 
 |                                                                                                                                                                         |                                                                                                                                                                         |                                                                                                                                                                         |
 | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
