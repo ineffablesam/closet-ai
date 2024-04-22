@@ -3,7 +3,7 @@ package_rename_config:
     app_name: 'Closet AI'
     package_name: 'com.closet.ai'
     override_old_package: # (Optional) (String) Use this to delete the old folder structure of MainActivity or to use the existing code with the new package name
-    lang: # (Optional) (String) The android development language {kotlin(default) or java}
+    lang: # (Optional) (String) The android development language {kotlin(default) or java} 
 
   ios:
     app_name: 'Closet AI'
